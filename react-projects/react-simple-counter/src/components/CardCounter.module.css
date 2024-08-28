@@ -1,0 +1,10 @@
+.count {
+    font-size: 1.5rem;
+    font-family:'Courier New', Courier, monospace;
+    padding-block: 2rem;
+    text-align: center;
+}
+.caption {
+    padding: 10px;
+    text-align: center;
+}

@@ -1,0 +1,34 @@
+.main-page section {
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  padding-top: 1rem;
+  border: 1px solid black;
+}
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+  padding: 20px 0;
+  position: fixed;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.links {
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+#light {
+  background-color: #fff;
+  color: inherit;
+}
+#dark {
+  background-color: #111;
+  color: white;
+}

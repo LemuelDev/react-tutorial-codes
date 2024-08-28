@@ -1,0 +1,556 @@
+//creating a react app in the terminal
+npm create vite@latest
+project name
+select framework (react then JS)
+cd folder..
+npm install
+npm run dev (view it in the browser)
+
+// intro to react...
+- React is js library for building user interfaces, build reusable UI components, manage their state and render
+them effciently on the web page..
+
+react.dev (documentatation)
+
+// library vs framework
+LIBRARY - provides reusable function to our code.
+- our code controls when and where to call a library.
+- intent of library is to provide reusable software functionality.
+
+FRAMEWORK - provides ready to use tools, standards, templates, and policies for 
+fast app development.
+- to reduce to complexity of the software development process..
+
+//advantage of using react..
+performance enhancement
+component-based architecture
+thriving community
+
+//disadvantage of using react..
+steep learning curve
+complexity in large applications
+development pace
+
+// prerequisites of react
+-html, css, js
+
+//fundamentals of react..
+-react components (reusable components for the UI)
+-dom (data representation on the web)
+-virtual dom (visual representation of dom in memory)
+
+//building components
+JSX - syntax extension to JS.
+
+jsx can be used if there is one parent element when returning the value of the function.
+ <div>
+      <h1> Hello, {fullName(user)}! </h1>
+  </div>
+
+REACT FRAGMENT - can be used as a parent element of the returning value so we can use the JSX..
+ <>
+    <h1> Hello, {fullName(user)}! </h1>
+ </>
+
+COMPONENTS - piece of code that represents a part of a UI.
+//remember that components is caps the first word and a self closing tags..
+
+!! best practice is to create a separate folder in src folder for the components.
+src-components-files.jsx
+after that, import that components in the app.jsx
+then render it to the app function..
+
+install boostrap from getbootstrap.com
+npm i boostrap@5.3.1 (latest ver)
+bootstrap is a 3rd party app that is used to style components in react.
+
+import 'bootstrap/dist/css/bootstrap.css';
+
+// class => className=""
+
+LIST AND KEYS
+LIST--
+-rendering lists to display a collection of data.
+- u can use the js array methods to manipulate data.
+- filter() and map() with react to transform the array of data into an array of components.
+
+KEYS--
+- it tells react which array item each component corresponds to, so that it can match them up later.
+- it becomes important if your array items can move, get inserted, or get deleted.
+
+so the key usually puts in the parent element of the list.
+
+
+//map method
+function App() {
+  const cities = ['Manila', 'Zambales', 'Pampanga', 'Cebu']
+  return (
+      <>
+        <ul className="list-group">
+          {cities.map((city, index) => (
+            <li className="list-group-item" key={index}>{city}</li>
+          ))}
+        </ul>
+      </>
+   );
+}
+
+export default App
+
+
+//filter and map
+
+function App() {
+  const cities = ['Manila', 'Zambales', 'Pampanga', 'Cebu']
+  const newCities = cities.filter(city => city !== 'Cebu')
+  return (
+      <>
+        <ul className="list-group">
+          {newCities.map((city, index) => (
+            <li className="list-group-item" key={index}>{city}</li>
+          ))}
+        </ul>
+      </>
+   );
+}
+
+export default App
+
+//mapping through an array of object and render the list and keys in the page
+
+
+function App() {
+  const cities = ['Manila', 'Zambales', 'Pampanga', 'Cebu']
+  const newCities = cities.filter(city => city !== 'Cebu')
+
+  const person = [
+    {
+    id: 0,
+    name: 'John Lemuel Encina',
+    age: 18,
+    },
+    {
+      id: 1,
+      name: 'Aera Casey Campos',
+      age: 20,
+    },
+    {
+      id: 2,
+      name: 'Clarence Mayor',
+      age: 19,
+    },
+    {
+      id: 3,
+      name: 'Angelo Muyano',
+      age: 20,
+    },
+    {
+      id: 4,
+      name: 'Yesha Elacion',
+      age: 19,
+     },
+    
+  ]
+  return (
+      <>
+      <h1>City</h1>
+        <ul className="list-group">
+          {newCities.map((city, index) => (
+            <li className="list-group-item" key={index}>{city}</li>
+          ))}
+        </ul>
+        <hr />
+        <h1>Table</h1>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            {person.map(data => {
+              return (
+                <tr key={data.id}>
+                  <td>{data.id}</td>
+                  <td>{data.name}</td>
+                  <td>{data.age}</td>
+               </tr>
+                )
+            })}
+          </tbody>
+       </table>
+      </>
+   );
+}
+
+export default App
+
+
+
+//conditional rendering
+- components will often needed to display different things
+depending on the different conditions. In react, you can conditionally render JSX using JS syntax like if else. (ternary operators)
+
+function App() {
+  const cities = ['Manila', 'Zambales', 'Pampanga', 'Cebu']
+  const newCities = cities.filter(city => city !== 'Cebu')
+
+  const person = [
+    {
+    id: 0,
+    name: 'John Lemuel Encina',
+    age: 18,
+    },
+    {
+      id: 1,
+      name: 'Aera Casey Campos',
+      age: 20,
+    },
+    {
+      id: 2,
+      name: 'Clarence Mayor',
+      age: 19,
+    },
+    {
+      id: 3,
+      name: 'Angelo Muyano',
+      age: 20,
+    },
+    {
+      id: 4,
+      name: 'Yesha Elacion',
+      age: 19,
+     },
+    
+  ]
+  return (
+      <>
+      <h1>City</h1>
+        <ul className="list-group">
+          {newCities.map((city, index) => (
+            <li className="list-group-item" key={index}>{city}</li>
+          ))}
+        </ul>
+        <hr />
+      {person.length > 0 ? 
+        <div>
+              <h1>Table</h1>
+        <table className="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {person.map(data => {
+              return (
+                <tr key={data.id}>
+                  <td>{data.id}</td>
+                  <td>{data.name}</td>
+                  <td>{data.age < 20 ? 'Young' : 'Old'}</td>
+               </tr>
+                )
+            })}
+          </tbody>
+        </table>
+        </div>
+        : '...loading'}
+      </>
+   );
+}
+
+export default App
+
+
+DAY 1--
+React Framework.
+Fundamentals
+-JSX
+-Components
+-List and Keys
+-Conditional Rendering
+
+
+
+// handling eventsss
+- HANDLING EVENTS  is simply responding to events
+- lets you add event handlers to your JSX.
+- clicking, hovering, focusing form inputs, and so on.
+- buttons onClick, input onChange, form onSubmit
+
+
+//styling of components
+-vanila css, css modules, inline styles
+-popular UI libraries (bootstrap, chakra UI, Material-UI)
+
+CSS MODULES - prevent to style the same classnames but have a different component.
+// importing css modules requires a variable to store that import to the app.
+
+import style from './components/navbarcomponent.module.css
+
+classname="navbar" => classname={style.navbar}
+classname="logo" => classname={style.logo}
+classname="nav-items" => classname={style["nav-items"]} 
+
+css modules classNames are unique to avoid re-styling other components.
+
+Inline Styles - styling inlined to the specific element.
+ <li><a href="" style={{borderBottom: "2px solid black", color: "red"}}>Home</a></li>
+            <li><a href="" style={{borderBottom: "2px solid black"}}>About</a></li>
+            <li><a href="" style={{borderBottom: "2px solid black"}}>Contact</a></li>
+
+
+3rd party libraries for UI
+
+getbootstrap.com
+chakra-ui.com
+mui.com
+
+
+
+// react state and props..
+
+STATE - is a way to manage and track changes and data within a component..
+- used to store nad manage dynamic data within a component.
+
+
+useState - managing and changing the current state of a value.
+
+function Counter() {
+  const [count, setCount] = useState(0);
+  // 'count' is the state variable, 'setCount' is the updater function
+  // '0' is the initial value of the state
+}
+
+
+import {useState} from 'react'
+
+const [count, setCount] = useState(0)
+count is the main variable
+setCount is the setter for the value of count
+
+In summary, state allows you to manage and update data within a component, leading to dynamic and interactive user interfaces. State is local to a component, and changes to it trigger re-renders of the component. Make sure to follow React's conventions and guidelines when working with state to ensure smooth and predictable behavior.
+
+
+props - a way of passing data to the parent component to a child component.
+what types of props?
+-numbers, strings, array, objects, functions
+// remember that props are read-only.
+
+3 ways
+- passing a value
+- passing a function to a prop
+- passing to a children
+
+-passing a value via component
+
+from the component
+const PropsComponent = ({count}) => {
+  return (
+    
+    <h1>Count : {count}</h1>
+  )
+}
+
+export default PropsComponent
+
+import it and render to the app.jsx
+import PropsComponent from "./components/PropsComponent";
+<PropsComponent count={count} />
+
+- passing a function as prop
+
+from the component
+const PropsComponent = ({count, handleIncrement, handleDecrement}) => {
+  return (
+    <h1>Count : {count}</h1>
+    <button onClick={() => handleIncrement()}>Increment</button>
+    <button onClick={() => handleDecrement()}>Decrement</button>
+  )
+}
+
+import it and render to the app.jsx
+import PropsComponent from "./components/PropsComponent";
+<PropsComponent count={count} handleIncrement={handleIcrement} handleDecrement={handleDecrement}    />
+
+passing the orig function as a props to the component.
+
+-passing a children as a prop
+
+const ChildrenComponent = ({children}) => {
+  return (
+    <div>
+        {children}
+    </div>
+  )
+}
+
+export default ChildrenComponent
+
+<ChildrenComponent>
+        <h3>This is a prop component pass as a child to the other component</h3>
+        <PropsComponent count={count} handleIncrement={handleIncrement} handleDecrement={handleDecrement}    />
+      </ChildrenComponent>
+
+
+//React Hookssss
+
+- a way of handling logic, update some state, and other component lifecylce in our function..
+
+-useState, useRef, useEffect, useContext, useReducer, userCallback, useMemo and how to create a custom hooks..
+
+////////////
+
+useRef - are used usually to manipulate dom elements..
+- it usually puts on inputs, forms, tags,..
+
+ const inputRef = useRef();
+    const inputSecondRef = useRef();
+
+    const handleFocus = () => {
+        inputRef.current.focus();
+    }
+
+    const handleInput = () => {
+        const value = inputSecondRef.current.value;
+        console.log(value);
+    }
+
+useEffect - allows us to have a side effect to our functional component. If you want to update the state, certain actions, changes on the state..
+
+ useEffect(() => {
+        
+    }, [])
+
+it has a callback function,
+the array is the dependecy list,
+
+useEffect(() => {
+        console.log(count);
+        console.log('Count is Updated..');
+    
+    }, [count])
+
+When the count is updated, the useEffect will run too everytime the count is updated.
+
+IF THERE IS NO DEPENDENCY LIST, the useEffect function will run into the browser once when it reloads.
+
+useEffect - is also used to fetch some data to our react application.....
+
+  const [listNames, setListNames] = useState([]);
+
+    useEffect(() => {
+        fetch('https://jsonplaceholder.typicode.com/todos')
+      .then(response => response.json())
+      .then(json => setListNames(json))
+    }, [])
+
+////////////////////////
+
+useContext - manage of state globally, you can access the state whatever component you like.
+
+it is to avoid passing states in a nested components that will be result to the prop drilling and it is not the best practice..
+
+first is make a folder for the context.
+add a js file....
+
+// this is an example ..
+import { createContext } from "react";
+
+const ThemeContext = createContext()
+
+export default ThemeContext
+
+next is create a provider component...
+in this component, you can define the states, functions and others that you want to use into your react applications.
+
+in the component file, import the context we create into the component
+
+import ThemeContext from "../context/ThemeContext"
+
+
+const ThemeProvider = () => {
+  return (
+    <ThemeContext.Provider/>
+  )
+}
+
+export default ThemeProvider
+
+in our component, expect that it will receice a children because later on we will wrap the nested components inside the ThemeProvider component...
+
+If you have a set of related components that need to share common functions and states, using the Context API with useContext is a great approach. It helps you avoid passing those functions and states through multiple layers of components as props, which can lead to a more complex and harder-to-maintain codebase.
+
+
+//////////
+useReducer --- is another hook in React that is used for managing state, particularly when the state transitions are more complex and involve multiple actions. It's an alternative to using useState when your state logic becomes more intricate and involves handling different actions that update the state in a more controlled manner.
+
+import { useReducer } from "react"
+
+const reducer = (state, action) => {
+    switch (action.type){
+        case 'increment' :
+            return {count : state.count + 1};
+        case 'decrement' :
+            return {count : state.count - 1};
+        case 'reset':
+            return {count: 0}
+        default:
+            return state;
+    }
+};
+
+
+const ComponentUseReducer = () => {
+
+    const intialState = { count: 0 }
+    
+    const [state, dispatch] = useReducer(reducer, intialState)
+  return (
+    <div>
+        <h4>Count:{state.count} </h4>
+        <button className="btn btn-primary" onClick={() => dispatch({type: 'increment'})}>Increment</button>
+        <button className="btn btn-danger" onClick={() => dispatch({type: 'decrement'})}>Decrement</button>
+        <button className="btn btn-success" onClick={() => dispatch({type: 'reset'})}>Reset</button>
+    </div>
+  )
+}
+
+export default ComponentUseReducer
+
+
+
+
+useCallbacks - like a regular function but it is using the useCallback hook from react to optimize the performance and usually used to nested components...
+
+
+const ComponentUseCallbacks = () => {
+
+    const [count, setCount] = useState(0)
+
+    const handleIncrement = useCallback(() => {
+        setCount(prevCount => prevCount + 1)
+    }, [])
+
+  return (
+    <div>
+        <h3>Count: {count}</h3>
+        <button className="btn btn-success" onClick={handleIncrement}>Increment</button>
+
+    </div>
+  )
+}
+
+
+useMemo - used to memoize the computations of your code and update that value when you change the value of that dependency
+
+
+
+
+
+
+

@@ -1,0 +1,28 @@
+useState: Allows you to add state to your functional components, enabling them to store and manage data that can change over time.
+
+useEffect: Enables you to perform side effects in your components, such as data fetching, DOM manipulation, and subscriptions, after the component has rendered.
+
+useContext: Provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+useReducer: Offers an alternative to useState for managing more complex state logic, often used in scenarios where state transitions are more intricate.
+
+useMemo: Helps optimize the performance of your components by memoizing the result of a computation based on its dependencies.
+
+useCallback: Similar to useMemo, but it memoizes functions, helping to prevent unnecessary re-renders in components.
+
+useRef: Provides a way to create mutable values that persist across renders, often used for accessing DOM elements directly or storing values that do not trigger re-renders.
+
+useLayoutEffect: Similar to useEffect, but runs synchronously after all DOM mutations. Useful for operations that require access to the DOM immediately after an update.
+
+useImperativeHandle: Customizes the instance value that is exposed when using ref with forwardRef.
+
+useContext: Allows you to access context values within a component without nesting several levels of components or passing props down.
+
+useDebugValue: Used for custom hooks to display a label for custom hooks in React DevTools.
+
+These hooks provide a versatile toolkit for managing different aspects of your React applications. Depending on the complexity of your project and the specific use cases, you'll likely find yourself using a combination of these hooks to achieve your goals efficiently.
+
+
+
+
+

@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .box-wrapper {
+        @apply grid grid-cols-3 gap-2 max-w-sm mx-auto mt-5 p-3 border-2 rounded-md
+    }
+    .flex-wrapper {
+        @apply flex justify-center items-center gap-3
+    }
+    .shadow-box{
+       @apply max-w-md mx-auto px-5 py-5 shadow-xl ring-1 ring-slate-900/5 rounded-md
+    }
+    .odd-even{
+        @apply first:bg-yellow-200 even:bg-violet-300  odd:bg-red-300 rounded-md
+    }
+}
+
+@layer utilities {
+    .title-style{
+        @apply text-3xl text-center p-5 font-mono text-yellow-600 font-extrabold
+    }
+}

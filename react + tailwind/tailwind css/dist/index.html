@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="output.css">
+</head>
+<body class="p-3">
+
+    <!-- basic styles (text, color, bg, bor-radius, padding, height) -->
+    <div class="text-lg font-extrabold h-10 p-2 font-mono text-white text-center bg-blue-500 rounded">
+        <p>Hello Tailwind</p>
+    </div>
+
+    <!-- layout -->
+
+    <!-- positions -->
+    <div class="fixed top-0 h-20 w-fit rounded-full bg-red-500 pt-6 px-5">
+        <p class="text-center font-bold font-mono shadow-sm text-2xl">Fixed</p>
+    </div>
+
+    <div class="mt-4 relative max-w-sm mx-auto p-2">
+        <div class="flex flex-col items-center align-middle">
+            <h4 class="mb-2 text-2xl font-mono font-extrabold">Position relative</h4>
+            <div class="relative right-[10px] bg-blue-300 rounded-md w-full h-10 mb-2 max-[498px]:right-0">
+                <p class="text-center p-1 text-xl font-mono">Box 1</p>
+            </div>
+            <div class="relative right-[-60px] bg-red-300 max-w-full rounded-md w-full h-10 mb-2 max-[498px]:right-0"">
+                <p class="text-center p-1 text-xl font-mono">Box 2</p>
+            </div>
+            <div class="relative left-[-60px] bg-violet-300 max-w-full rounded-md w-full h-10 mb-2 max-[498px]:left-0"">
+                <p class="text-center p-1 text-xl font-mono">Box 3</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- displays -->
+    <h4 class="text-center text-2xl font-mono font-extrabold mt-5">Display</h4>
+    <!-- flex -->
+    <h4 class="text-[1.2rem] text-center my-5"> <strong>Flex</strong>, j-between and item centered.</h4>
+    <div class="flex-wrapper shadow-box items-center px-5 mt-4 max-w-xs mx-auto max-md:border-2 p-3 rounded-md ">
+        <div class="bg-gray-600 rounded-full w-10 h-10"></div>
+        <div class="bg-gray-600 rounded-full w-10 h-10"></div>
+        <div class="bg-gray-600 rounded-full w-10 h-10"></div>
+    </div>
+
+
+    <!-- grid  -->
+    <h4 class="text-center text-2xl font-mono font-extrabold mt-8 ">Grid, column of 3</h4>
+
+
+    <!-- clean and simple using the tailwind components.. -->
+    <div class="box-wrapper">
+        <div class="h-10 bg-red-400 rounded"></div>
+        <div class="h-10 bg-red-400 rounded"></div>
+        <div class="h-10 bg-red-400 rounded"></div>
+    </div>
+
+    <!-- media queries -->
+    <div class="max-md:block border-2 hidden mt-5 text-center p-2">
+        <h4>MEDIA QUERIES</h4>
+        <p>I will not appear if my device > 768px </p>
+    </div>
+
+    <h4 class="text-center text-xl font-mono my-5 "> ADJUSTING FLEX USING MEDIA QUERIES</h4>
+    <p class="text-center text-xs font-mono my-5 "> I will be flex-column if my device < 786px </p>
+    <div class="flex-wrapper mt-4 border-2 rounded-md p-5 max-md:flex-col">
+        <div class="bg-violet-400 h-10 w-10 rounded-md"></div>
+        <div class="bg-violet-400 h-10 w-10 rounded-md"></div>
+        <div class="bg-violet-400 h-10 w-10 rounded-md"></div>
+    </div>
+
+    <!-- hover, focus and other states  -->
+    <div class="mt-2 text-center rounded-md border-2 py-5">
+        <p class="text-cyan-600 text-[1.2rem] font-mono cursor-pointer hover:text-cyan-400 ">This is a hoverable text.</p>
+        <button class="bg-purple-500 px-2 py-2 rounded-md text-white mt-3 hover:bg-purple-700 focus:ring-blue-300 active:bg-purple-700 focus:bg-purple-700 focus:ring">Click Me</button>
+    </div>
+
+
+    <h4 class="my-5 text-center text-2xl font-mono font-extrabold">Child Stylings (first, odd, even)</h4>
+    <ul class="mt-2">
+        <li class="text-2xl p-2 mt-2 first:bg-yellow-200 rounded-md">Item 1</li>
+        <li class="text-2xl p-2 mt-2 odd-even">Item 2</li>
+        <li class="text-2xl p-2 mt-2 odd-even">Item 3</li>
+        <li class="text-2xl p-2 mt-2 odd-even">Item 4</li>
+    </ul>
+
+
+    <h4 class="mt-5 mb-5 text-center text-2xl font-mono font-bold ">Light and Dark Mode</h4>
+    <div class="shadow-box">
+        <p>Sorry for the inconvinience</p>
+        <p>The toggle will be available soon...</p>
+
+        <button id="toggleButton" class="bg-blue-200 rounded-md py-2 px-4 font-medium text-black mt-2">
+            Toggle Dark Mode
+        </button>
+    </div>
+
+
+    <h4 class="mt-10 text-center text-2xl font-mono text-black font-bold ">Custom Styles</h4>
+
+    <!-- square brackets -->
+    <p class="mt-4 text-2xl text-[#973f29] font-bold text-center">Chesnut Color</p>
+
+    <!-- tailwind config extend (extend and create your own styles.) -->
+    <p class="mt-2 text-[1.2rem] text-chesnut font-medium text-center">This is a extended color for chesnut in config file.</p>
+
+    <!-- tailwind base is a style globally. -->
+    <!-- tailwind components is a only style for reusable components like the usual css and can be use anywhere in the html -->
+    <!-- tailwind utilities are the inline styles for html just like margin, padding, and typography... -->
+    <!-- 45:00 -->
+    \
+    <h4 class="title-style">Sample section</h4>
+    <h4 class="text-center text-chesnut text-3xl pt-5 pb-3 font-mono font-extrabold">Content Section</h4>
+    <div class="flex-wrapper mt-5 max-w-3xl mx-auto shadow-box p-10">
+
+        <div class="shadow-box py-6 px-14 text-center ">
+            <h4> Content 1</h4>
+            <p>This is content 1</p>
+            <button class="px-4 py-2 text-white rounded-lg  bg-slate-600 mt-5 hover:bg-slate-800">Content 1</button>
+        </div>
+        <div class="shadow-box py-6 px-14 text-center ">
+            <h4> Content 2</h4>
+            <p>This is content 2</p>
+            <button class="px-4 py-2 text-black rounded-lg  bg-red-500 mt-5 hover hover:bg-red-700 active:bg-red-700 focus-bg-red-700 focus:ring ">Content 2</button>
+        </div>
+        <div class="shadow-box py-6 px-14 text-center ">
+            <h4> Content 3</h4>
+            <p>This is content 3</p>
+            <button class="px-4 py-2 text-white rounded-lg  bg-violet-500 mt-5 hover:bg-purple-700 active:bg-purple-700 focus:bg-purple-700 focus:ring focus:ring-blue-300">Content 3</button>
+        </div>
+    </div>
+
+</body>
+</html>
